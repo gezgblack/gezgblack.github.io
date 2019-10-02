@@ -1,107 +1,114 @@
-<!DOCTYPE html> 
-<html> 
-<head> 
-        <link rel="stylesheet" href="css/segment.css">
-    <title>Home Questionnaire<span id="selection-marker-1" class="redactor-selection-marker"></span></title> 
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="css/segment.css">
+    <title>Home Questionnaire<span id="selection-marker-1" class="redactor-selection-marker"></span></title>
 
     <script>
-        !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t,e){var n=document.createElement("script");n.type="text/javascript";n.async=!0;n.src="https://cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(n,a);analytics._loadOptions=e};analytics.SNIPPET_VERSION="4.1.0";
-        analytics.load("9pPREOc9rr88cMWZaXV3C5REmqN41ECC");
-        analytics.page();
-        }}();
-      </script>
-
-</head> 
-<body> 
-
-<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
-        <div id="player"></div>
-
-        <script>
-          // 2. This code loads the IFrame Player API code asynchronously.
-          var tag = document.createElement('script');
-          tag.src = "https://www.youtube.com/iframe_api";
-          var firstScriptTag = document.getElementsByTagName('script')[0];
-
-
-// 3. This function creates an <iframe> (and YouTube player)
-      //    after the API code downloads.
-      var player;
-      function onYouTubeIframeAPIReady() {
-        player = new YT.Player('player', {
-          height: '390',
-          width: '640',
-          videoId: 'ylLzyHk54Z0',
-events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
-          }
-        });
-        var ytAnalytics = new window.analytics.plugins.YouTubeAnalytics(player,'AIzaSyAQ5e_32i0vNpUkIOLN1RRTShPj0VrNSS0')
-    ytAnalytics.initialize()
-      }
-
-      // 4. The API will call this function when the video player is ready.
-      function onPlayerReady(event) {
-        event.target.playVideo();
-      }
-      // 5. The API calls this function when the player's state changes.
-      //    The function indicates that when playing a video (state=1),
-      //    the player should play for six seconds and then stop.
-      var done = false;
-      function onPlayerStateChange(event) {
-        if (event.data == YT.PlayerState.PLAYING && !done) {
-          setTimeout(stopVideo, 6000);
-          done = true;
-        }
-      }
-      function stopVideo() {
-        player.stopVideo();
-      }
+        !function () {
+            var analytics = window.analytics = window.analytics || []; if (!analytics.initialize) if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice."); else {
+            analytics.invoked = !0; analytics.methods = ["trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "reset", "group", "track", "ready", "alias", "debug", "page", "once", "off", "on"]; analytics.factory = function (t) { return function () { var e = Array.prototype.slice.call(arguments); e.unshift(t); analytics.push(e); return analytics } }; for (var t = 0; t < analytics.methods.length; t++) { var e = analytics.methods[t]; analytics[e] = analytics.factory(e) } analytics.load = function (t, e) { var n = document.createElement("script"); n.type = "text/javascript"; n.async = !0; n.src = "https://cdn.segment.com/analytics.js/v1/" + t + "/analytics.min.js"; var a = document.getElementsByTagName("script")[0]; a.parentNode.insertBefore(n, a); analytics._loadOptions = e }; analytics.SNIPPET_VERSION = "4.1.0";
+                analytics.load("9pPREOc9rr88cMWZaXV3C5REmqN41ECC");
+                analytics.page();
+            }
+        }();
     </script>
 
-<h1>What is your favorite place to travel?</h1> 
-<p>I am building a directory of the sweetest travel destinations.</p>  
-<form name="travel" onsubmit="identify(event)">
-     What is your favorite travel destination?
-    <input name="destination" required="" size="81" type="text"/> 
-    <br><br><br> 
-    Any recommendations (cool things to do, places to visit or restaurants to eat)? 
-    <br><br> 
-    <textarea cols="81" name="details" required="" rows="10">
-    </textarea> 
-    <br><br> 
-    Name: <input name="fullname" required="" size="75" type="text"/> 
-    <br><br> 
-    Email: <input name="email" required="" size="75" type="email"/> 
-    <br><br>
-    <input name="submit" type="submit" value="submit"/>
-</form>
-<br>
-<a href="https://app.segment.com/segment-shamil.ataev/sources/shamil/debugger">Debugger</a>
+</head>
 
-<script type="text/javascript">
-    function identify(e){
-      e.preventDefault();
-      var form = e.target;
-      var email = form["email"].value;
-      var fullname = form["fullname"].value;
-      var destination = form["destination"].value;
-      var details = form["details"].value;
-      var user = {
-          email: email, 
-          name: fullname, 
-          destination: destination, 
-          details: details
-      };
-      analytics.identify('1234', {
-          email: email, 
-          name: fullname
-      });
-      analytics.track('destination submitted', user, function() {
-          window.location.href = "";
-      });
-    }
-</script>
-</body> 
+<!-- START Youtube plugin-->
+<body>
+    <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+    <div id="player"></div>
+
+    <script>
+        // 2. This code loads the IFrame Player API code asynchronously.
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        // 3. This function creates an <iframe> (and YouTube player)
+        //    after the API code downloads.
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: '390',
+                width: '640',
+                videoId: 'M7lc1UVf-VE',
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+            var ytAnalytics = new window.analytics.plugins.YouTubeAnalytics(player, 'AIzaSyAQ5e_32i0vNpUkIOLN1RRTShPj0VrNSS0')
+            ytAnalytics.initialize()
+        }
+        // 4. The API will call this function when the video player is ready.
+        function onPlayerReady(event) {
+            event.target.playVideo();
+        }
+        // 5. The API calls this function when the player's state changes.
+        //    The function indicates that when playing a video (state=1),
+        //    the player should play for six seconds and then stop.
+        var done = false;
+        function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.PLAYING && !done) {
+                setTimeout(stopVideo, 6000);
+                done = true;
+            }
+        }
+        function stopVideo() {
+            player.stopVideo();
+        }
+    </script>
+</body>
+<!-- END Youtube plugin-->
+
+<body>
+    <h1>What is your favorite place to travel?</h1>
+    <p>I am building a directory of the sweetest travel destinations.</p>
+    <form name="travel" onsubmit="identify(event)">
+        What is your favorite travel destination?
+        <input name="destination" required="" size="81" type="text" />
+        <br><br><br>
+        Any recommendations (cool things to do, places to visit or restaurants to eat)?
+        <br><br>
+        <textarea cols="81" name="details" required="" rows="10">
+    </textarea>
+        <br><br>
+        Name: <input name="fullname" required="" size="75" type="text" />
+        <br><br>
+        Email: <input name="email" required="" size="75" type="email" />
+        <br><br>
+        <input name="submit" type="submit" value="submit" />
+    </form>
+    <br>
+    <a href="https://app.segment.com/segment-shamil.ataev/sources/shamil/debugger">Debugger</a>
+
+    <script type="text/javascript">
+        function identify(e) {
+            e.preventDefault();
+            var form = e.target;
+            var email = form["email"].value;
+            var fullname = form["fullname"].value;
+            var destination = form["destination"].value;
+            var details = form["details"].value;
+            var user = {
+                email: email,
+                name: fullname,
+                destination: destination,
+                details: details
+            };
+            analytics.identify('1234', {
+                email: email,
+                name: fullname
+            });
+            analytics.track('destination submitted', user, function () {
+                window.location.href = "";
+            });
+        }
+    </script>
+</body>
+
 </html>
